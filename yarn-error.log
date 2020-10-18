@@ -1,0 +1,41 @@
+Arguments: 
+  D:\Program Files\nodejs\node.exe C:\Users\Mohammad\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add apollo-server graphql mongoosej
+
+PATH: 
+  D:\Program Files\Git\mingw64\bin;D:\Program Files\Git\usr\bin;C:\Users\Mohammad\bin;D:\Program Files\Git\mingw64\bin;D:\Program Files\Git\usr\bin;C:\Users\Mohammad\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;D:\Program Files\ImageMagick-7.0.8-Q16;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Common Files\Autodesk Shared;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\Autodesk\Backburner;C:\Program Files\Microsoft SQL Server\120\Tools\Binn;D:\Program Files\Python;D:\Program Files\Python\Scripts;D:\Program Files\PostgreSQL\9.6\bin;C:\Vagrant\bin;C:\WINDOWS\System32\OpenSSH;D:\Program Files\Git\cmd;D:\Program Files\nodejs;C:\Users\Mohammad\AppData\Local\Microsoft\WindowsApps;D:\Program Files\Python;D:\Program Files\Python\Scripts;D:\Program Files\PostgreSQL\9.6\bin;D:\Program Files\Microsoft VS Code\bin;C:\Users\Mohammad\AppData\Local\Programs\Microsoft VS Code\bin;D:\Program Files (x86)\Nmap;D:\Program Files\heroku\bin;D:\Program Files\Docker Toolbox;C:\Users\Mohammad\AppData\Roaming\npm;C:\Users\Mohammad\AppData\Local\GitHubDesktop\bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  14.13.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/mongoosej: Not found
+      at Request.params.callback [as _callback] (C:\Users\Mohammad\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66091:18)
+      at Request.self.callback (C:\Users\Mohammad\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129590:22)
+      at Request.emit (events.js:314:20)
+      at Request.<anonymous> (C:\Users\Mohammad\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:130562:10)
+      at Request.emit (events.js:314:20)
+      at IncomingMessage.<anonymous> (C:\Users\Mohammad\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:130484:12)
+      at Object.onceWrapper (events.js:420:28)
+      at IncomingMessage.emit (events.js:326:22)
+      at endReadableNT (_stream_readable.js:1252:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+
+npm manifest: 
+  {
+    "name": "msm",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
