@@ -4,26 +4,30 @@ import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 import { FETCH_POST_QUERY } from "../utils/graphql";
 
-export default function DeleteButton({ postId, callback }) {
+export default function DeleteButton({ postId, commentId, callback }) {
   const [confirmOpen, setConfirmOpen] = useState(false);
 
-  const [deletePost] = useMutation(DELETE_POST_MUTATION, {
+  const mutation = commentId ? DELETE_COMMENT_MUTATION : DELETE_POST_MUTATION;
+  const [deletePostOrMutation] = useMutation(mutation, {
     update(proxy) {
       setConfirmOpen(false);
-      const data = proxy.readQuery({ query: FETCH_POST_QUERY });
-      let newData = data.getPosts.filter((post) => post.id !== postId);
-      proxy.writeQuery({
-        query: FETCH_POST_QUERY,
-        data: {
-          getPosts: {
-            newData,
+      if (!commentId) {
+        const data = proxy.readQuery({ query: FETCH_POST_QUERY });
+        let newData = data.getPosts.filter((post) => post.id !== postId);
+        proxy.writeQuery({
+          query: FETCH_POST_QUERY,
+          data: {
+            getPosts: {
+              newData,
+            },
           },
-        },
-      });
-      if (callback) callback();
+        });
+        if (callback) callback();
+      }
     },
     variables: {
       postId,
+      commentId,
     },
   });
   return (
@@ -39,7 +43,7 @@ export default function DeleteButton({ postId, callback }) {
       <Confirm
         open={confirmOpen}
         onCancel={() => setConfirmOpen(false)}
-        onConfirm={deletePost}
+        onConfirm={deletePostOrMutation}
       />
     </>
   );
@@ -48,5 +52,20 @@ export default function DeleteButton({ postId, callback }) {
 const DELETE_POST_MUTATION = gql`
   mutation deletePost($postId: ID!) {
     deletePost(postId: $postId)
+  }
+`;
+
+const DELETE_COMMENT_MUTATION = gql`
+  mutation deleteComment($postId: ID!, $commentId: ID!) {
+    deleteComment(postId: $postId, commentId: $commentId) {
+      id
+      comments {
+        id
+        username
+        createdAt
+        body
+      }
+      commentCount
+    }
   }
 `;
