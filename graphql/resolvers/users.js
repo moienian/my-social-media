@@ -6,8 +6,9 @@ const {
   validateRegisterInput,
   validateLoginInput,
 } = require("../../utils/validators");
-const { SECRET_KEY } = require("../../config");
 const User = require("../../models/User");
+
+const SECRET_KEY = process.env.SECRET_KEY;
 
 const generateToken = (user) => {
   return jwt.sign(

@@ -4,17 +4,20 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "serve": "node index.js"
+    "server": "node index",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "dependencies": {
     "apollo-server": "^2.18.2",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "graphql": "^15.3.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.5"
   }
 }
