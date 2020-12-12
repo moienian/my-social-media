@@ -1,5 +1,6 @@
-const { ApolloServer, PubSub } = require("apollo-server");
+const { ApolloServer, PubSub } = require("apollo-server-express");
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -24,9 +25,9 @@ const server = new ApolloServer({
 });
 
 server.applyMiddleware({
-  path: "/client",
   app,
 });
+
 mongoose
   .connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
